@@ -1,8 +1,8 @@
-// Copyright 2020 reducedboolean Author(https://github.com/yudeguang/reducedboolean). All Rights Reserved.
+// Copyright 2020 reducedboolean Author(https://github.com/yudeguang17/reducedboolean). All Rights Reserved.
 //
 // This Source Code Form is subject to the terms of the MIT License.
 // If a copy of the MIT was not distributed with this file,
-// You can obtain one at https://github.com/yudeguang/reducedboolean.
+// You can obtain one at https://github.com/yudeguang17/reducedboolean.
 package reducedboolean
 
 import (
@@ -41,7 +41,7 @@ func IsTrue(s string) (bool, error) {
 	return s == "1", nil
 }
 
-//处理and {"0 and 0", "0"},{"0 and 1", "0"},{"1 and 1", "1"},{"1 and 0", "0"}
+// 处理and {"0 and 0", "0"},{"0 and 1", "0"},{"1 and 1", "1"},{"1 and 0", "0"}
 func cleanAnd(s string) string {
 	for {
 		pre := s
@@ -56,7 +56,7 @@ func cleanAnd(s string) string {
 	return cleanParentheses(s)
 }
 
-//处理带括号的OR {"(0 or 0", "(0"},{"(0 or 1", "(1"},{"(1 or 1", "(1"},{"(1 or 0", "(1"}
+// 处理带括号的OR {"(0 or 0", "(0"},{"(0 or 1", "(1"},{"(1 or 1", "(1"},{"(1 or 0", "(1"}
 func cleanOrHasParentheses(s string) string {
 	for {
 		pre := s
@@ -70,8 +70,8 @@ func cleanOrHasParentheses(s string) string {
 	return cleanParentheses(s)
 }
 
-//处理普通的OR 	{"0 or 0", "0"},{"0 or 1", "1"},{"1 or 1", "1"},{"1 or 0", "1"}
-//处理OR之前，要确保处理完所有的and
+// 处理普通的OR 	{"0 or 0", "0"},{"0 or 1", "1"},{"1 or 1", "1"},{"1 or 0", "1"}
+// 处理OR之前，要确保处理完所有的and
 func cleanOr(s string) string {
 	s = cleanAnd(s)
 	for {
@@ -86,7 +86,7 @@ func cleanOr(s string) string {
 	return s
 }
 
-//处理清洗完成后的括号{"(0)", "0"},{"(1)", "1"}
+// 处理清洗完成后的括号{"(0)", "0"},{"(1)", "1"}
 func cleanParentheses(s string) string {
 	for {
 		pre := s
@@ -100,7 +100,7 @@ func cleanParentheses(s string) string {
 	return s
 }
 
-//规范化数据
+// 规范化数据
 func fmtStr(s string) string {
 	s = strings.ToLower(s)
 	for i := range kvPairsForFmt {
